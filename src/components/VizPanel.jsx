@@ -32,13 +32,7 @@ export default function VizPanel({
 						`${
 							KIND_STYLE[w.kind] || "bg-zinc-100 border-zinc-300"
 						} ` +
-						`${
-							isPinned
-								? "ring-2 ring-warn"
-								: isHover
-								? "ring-2 ring-accent2"
-								: ""
-						}`;
+						`${isPinned ? "ring-2 ring-amber-400 dark:ring-amber-300" : isHover ? "ring-2 ring-accent2" : ""}`;
 
 					const label = w.raw === "" ? "␠" : w.raw;
 					return (

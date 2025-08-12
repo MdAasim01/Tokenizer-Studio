@@ -152,7 +152,7 @@ export default function App() {
 			</div>
 
 			{copiedBanner && (
-				<div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-ink text-white text-sm px-4 py-2 rounded-full shadow-lg">
+				<div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-ink bg-slate-600 text-white text-sm px-4 py-2 rounded-full shadow-lg">
 					{copiedBanner}
 				</div>
 			)}
