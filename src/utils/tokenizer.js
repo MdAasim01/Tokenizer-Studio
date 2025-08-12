@@ -53,49 +53,50 @@ export function encodeDetailed(text) {
   const words = [];
   const sequence = [];
 
-  const rawWords = text.split(" ");
+  const rawTokens = text.split(/(\s+)/);
   let cursor = 0;
 
-  rawWords.forEach((raw, wi) => {
-    const start = cursor;
-    const end = cursor + raw.length;
-    const kind = kindOfToken(raw);
+  rawTokens.forEach((raw, wi) => {
+		const start = cursor;
+		const end = cursor + raw.length;
+		const kind = kindOfToken(raw);
 
-    const chars = raw.split("");
-    const ids = [];
-    const octTriplets = [];
+		const chars = raw.split("");
+		const ids = [];
+		const octTriplets = [];
 
-    for (let i = 0; i < chars.length; i++) {
-      const id = chars[i].charCodeAt(0) + 64;
-      ids.push(id);
-      sequence.push(id);
-      octTriplets.push(pad3(id));
-    }
+		for (let i = 0; i < chars.length; i++) {
+			const id = chars[i].charCodeAt(0) + 64;
+			ids.push(id);
+			sequence.push(id);
+			octTriplets.push(pad3(id));
+		}
 
-    words.push({
-      index: wi,
-      raw,
-      chars,
-      ids,
-      octTriplets,
-      octWord: octTriplets.join(""),
-      start,
-      end,
-      kind,
-    });
+		words.push({
+			index: wi,
+			raw,
+			chars,
+			ids,
+			octTriplets,
+			octWord: octTriplets.join(""),
+			start,
+			end,
+			kind,
+		});
 
-    cursor = end + 1;
+		cursor = end;
   });
 
-  const octalString = words.map(w => w.octWord).join(" ").trim();
+  const octalString = words.map((w) => w.octWord).join("");
   const stats = {
-    chars: text.length,
-    words: rawWords.length,
-    ids: sequence.length,
+		chars: text.length,
+		words: rawTokens.length,
+		ids: sequence.length,
   };
 
   return { words, sequence, octalString, stats };
 }
+
 
 export function normalizeIdsInput(s) {
   if (!s) return [];

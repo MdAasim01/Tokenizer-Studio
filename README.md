@@ -1,12 +1,82 @@
-# React + Vite
+# Tokenizer Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tokenizer Studio is an interactive web application that converts text into token sequences and decodes tokens back into text.  
+It’s designed for exploration, learning, and debugging tokenization logic, with real-time visualizations, mapping tables, and decoding tools.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **React** — UI development
+- **Vite** — Lightning-fast build tool
+- **Tailwind CSS** — Utility-first styling
+- **JavaScript (ESNext)** — Pure JS implementation (no external tokenization libs)
+- **Deployed on** Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+
+### 🔄 Encoding
+- Convert plain text into tokenized output in real time.
+- Preserve whitespace and special characters.
+- Supports ASCII → `(charCode + 64)` → **octal triplets** conversion.
+- Encoded **ID sequence** view (array or CSV) with one-click copy.
+
+### 🗺 Token Mapping
+- Detailed per-token mapping table:
+  - Original token text
+  - Token kind (word, punctuation, number, space, special)
+  - Per-character octal triplets
+  - Full token octal string
+  - Numeric IDs (base 10)
+- Per-row copy buttons for **octal** and **IDs**.
+
+### 🎨 Token Visualization
+- Color-coded token chips by type.
+- Hover to highlight mapping table rows.
+- Click to pin specific tokens for closer inspection.
+- Legend for token type colors.
+
+### 📥 Decoding
+- Input token IDs in CSV, space-separated, or JSON array formats.
+- Live decoded text preview.
+- One-click copy of decoded text.
+- Preserves spaces and special characters in output.
+
+### 💡 UI/UX Enhancements
+- Dark/Light/System theme toggle with persistence.
+- Suggestion chips for quick sample inputs.
+- Copy-to-clipboard buttons with pointer cursor and feedback.
+- Responsive two-pane layout for desktop and mobile.
+
+---
+
+## 🧭 Navigation
+
+**Left Panel – Composer**
+- **Suggestions** — Click a chip to load sample text.
+- **Text Input** — Type or paste your own text.
+- **Copy Original** — Copies current text.
+- **Clear** — Resets all inputs.
+- **Encoded Sequence** — View full token ID array or CSV.
+
+**Right Panel – Inspector**
+1. **Token Mapping** — See how each token maps to IDs & octals.
+2. **Token Visualization** — Interactive chip view of tokens.
+3. **Token Decoding** — Paste IDs to decode back to text.
+
+---
+
+## 🛠 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/MdAasim01/Tokenizer-Studio.git
+cd tokenizer-studio
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev

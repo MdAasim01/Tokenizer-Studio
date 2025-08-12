@@ -13,14 +13,14 @@ export default function CopyButton({ payload, label = "Copy", onCopied }) {
   };
 
   return (
-    <button
-      className="text-sm px-3 py-1 rounded-lg border border-edge hover:bg-edge/40 disabled:opacity-40 cursor-pointer"
-      onClick={doCopy}
-      disabled={disabled}
-      aria-label={label}
-      title={label}
-    >
-      {label}
-    </button>
+		<button
+			className="text-sm px-3 py-1 rounded-lg border border-edge hover:bg-edge/40 disabled:opacity-40 cursor-pointer text-zinc-600 dark:text-slate-300"
+			onClick={doCopy}
+			disabled={disabled}
+			aria-label={label}
+			title={label}
+		>
+			{label}
+		</button>
   );
 }

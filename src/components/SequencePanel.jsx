@@ -5,7 +5,7 @@ export default function SequencePanel({ sequence, onCopied }) {
   const asCsv = sequence.join(",");
 
   return (
-    <div className="border border-edge rounded-xl bg-panel">
+    <div className="border border-edge rounded-xl bg-panel dark:bg-slate-800 dark:border-slate-700">
       <div className="px-4 py-3 border-b border-edge flex items-center justify-between">
         <div className="font-semibold text-ink">Encoded Sequence</div>
         <div className="flex gap-2">
