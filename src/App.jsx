@@ -66,7 +66,7 @@ export default function App() {
 							{encoded.stats.ids} IDs • {encoded.stats.words}{" "}
 							tokens • {encoded.stats.chars} chars
 						</div>
-						{/* <ThemeToggle /> */}
+						<ThemeToggle />
 						<GithubButton url="https://github.com/MdAasim01/Tokenizer-Studio.git" />
 					</div>
 				</div>
